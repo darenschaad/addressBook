@@ -12,3 +12,17 @@ describe ('Contact', function(){
   });
 
 });
+
+describe('Address', function() {
+  it("creates a new address with the given specifications", function() {
+    var testAddress = new Address("Home", "123 Main St", "Test City","Test State");
+    expect(testAddress.addressType).to.equal("Home")
+    expect(testAddress.street).to.equal("123 Main St");
+    expect(testAddress.city).to.equal("Test City");
+    expect(testAddress.state).to.equal("Test State");
+  });
+  it("adds the fullAddress method to all addresses", function(){
+    var testAddress = new Address("Home", "400 SW 6th St.", "Portland", "OR");
+    expect (testAddress.fullAddress()).to.equal("Home, 400 SW 6th St., Portland, OR");
+  })
+});
